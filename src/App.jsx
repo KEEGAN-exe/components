@@ -1,11 +1,17 @@
 import { Input } from './components/Input'
+import { InputFloat } from './components/InputFloat'
 
 function App() {
   return (
     <>
-      {/* El componente Input recibe 3 parámetros: type, placeholder y title. No se pueden haber simultáneamente un title y un placeholder. Si el type se establece como "password", se mostrará un botón para ver la contraseña. */}
-      <Input type="text" placeholder="Username" />
-      <Input type="password" title="Password" />
+      {/* 
+        A diferencia del componente Input, este recibe solo 2 parámetros: title y type.
+        El título actúa como un label que inicialmente aparece como placeholder.
+        Cuando el input obtiene el foco, el título se desplaza a la parte superior del input.
+        El título permanece en la parte superior cuando el input tiene valores.
+      */}
+      <InputFloat title="Username" type="text" />
+      <InputFloat title="Password" type="password" />
     </>
   )
 }
