@@ -9,10 +9,6 @@ export const InputFloat = ({ type, title }) => {
   useEffect(() => {
     setTypeState(type)
   }, [type])
-
-  useEffect(() => {
-    console.log(inputValue.length === 0)
-  }, [inputValue])
   return (
     <section className="text-xs leading-6 group w-[300px] my-4 relative">
       <label
