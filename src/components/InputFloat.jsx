@@ -7,15 +7,18 @@ export const InputFloat = ({ type, title }) => {
   const [typeState, setTypeState] = useState('')
   const [inputValue, setInputValue] = useState('')
   useEffect(() => {
+    setInputValue('')
+  }, [])
+  useEffect(() => {
     setTypeState(type)
   }, [type])
   return (
     <section className="text-xs leading-6 group w-[300px] my-4 relative">
       <label
-        className={`absolute top-1/2 -translate-y-1/2 mx-[4px] bg-neutral-900/95 px-[5px] text-white/60 pointer-events-none ${
+        className={`absolute -translate-y-1/2 mx-[4px] bg-neutral-900/95 px-[5px] text-white/60 pointer-events-none ${
           inputValue.length === 0
-            ? 'group-focus-within:top-0 group-focus-within:text-xs group-focus-within:text-white/90'
-            : '-top-0 text-xs text-white/90'
+            ? 'group-focus-within:top-0 group-focus-within:text-white/90 top-1/2'
+            : 'text-white/90 top-0 '
         } transition-all duration-[400ms]`}
       >
         {title}
