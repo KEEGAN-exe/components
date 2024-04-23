@@ -13,7 +13,7 @@ export const InputFloat = ({ type, title }) => {
     setTypeState(type)
   }, [type])
   return (
-    <section className="text-xs leading-6 group w-[300px] my-4 relative">
+    <section className="text-xs leading-6 group w-full my-2 relative">
       <label
         className={`absolute -translate-y-1/2 mx-[4px] bg-neutral-900/95 px-[5px] text-white/60 pointer-events-none ${
           inputValue.length === 0
@@ -45,6 +45,6 @@ export const InputFloat = ({ type, title }) => {
 }
 
 InputFloat.propTypes = {
-  type: PropTypes.string.isRequired,
+  type: PropTypes.string,
   title: PropTypes.string
 }

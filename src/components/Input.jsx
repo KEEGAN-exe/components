@@ -10,7 +10,7 @@ export const Input = ({ placeholder, type, title }) => {
   }, [type])
 
   return (
-    <section className="text-sm leading-6 group w-[300px] my-2">
+    <section className="text-sm leading-6 group w-full my-2">
       <label
         className={`${
           placeholder === undefined ? 'block' : 'hidden'
