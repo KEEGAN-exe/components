@@ -3,9 +3,44 @@ import { Eye } from '../assets/Eye'
 import { useEffect, useState } from 'react'
 import { CloseEye } from '../assets/CloseEye'
 
-export const InputFloat = ({ type, title }) => {
+export const InputFloat = ({ type, title, color }) => {
   const [typeState, setTypeState] = useState('')
   const [inputValue, setInputValue] = useState('')
+  const [colorInput, setColorInput] = useState('')
+
+  useEffect(() => {
+    let cl = ''
+    switch (color.toLowerCase()) {
+      case 'teal':
+        cl = 'focus:ring-teal-500/70 focus:border-teal-500'
+        break
+      case 'rose':
+        cl = 'focus:ring-rose-500/70 focus:border-rose-500'
+        break
+      case 'emerald':
+        cl = 'focus:ring-emerald-500/70 focus:border-emerald-500'
+        break
+      case 'orange':
+        cl = 'focus:ring-orange-500/70 focus:border-orange-500'
+        break
+      case 'yellow':
+        cl = 'focus:ring-yellow-400/70 focus:border-yellow-400'
+        break
+      case 'neutral':
+        cl = 'focus:ring-neutral-800/70 focus:border-neutral-800'
+        break
+      case 'blue':
+        cl = 'focus:ring-blue-500/70 focus:border-blue-500'
+        break
+      case 'indigo':
+        cl = 'focus:ring-indigo-500/80 focus:border-indigo-500 text-white'
+        break
+      default:
+        break
+    }
+    setColorInput(cl)
+  }, [color])
+
   useEffect(() => {
     setInputValue('')
   }, [])
@@ -25,7 +60,7 @@ export const InputFloat = ({ type, title }) => {
       </label>
       <input
         type={`${typeState}`}
-        className={`p-2 outline-none w-full rounded-[3px] text-white/60 transition-all focus:text-white/80 ring-[2px] ring-transparent border-gray-700/35 focus:ring-emerald-500/70 border focus:border-emerald-500 bg-neutral-900/95 duration-[400ms]${
+        className={`p-2 outline-none w-full rounded-[3px] text-white/60 transition-all focus:text-white/80 ring-[2px] ring-transparent border-gray-700/35 border ${colorInput} bg-neutral-900/95 duration-[400ms]${
           typeState === 'password' ? 'pr-[40px]' : ''
         }`}
         onChange={(e) => setInputValue(e.target.value)}
@@ -46,5 +81,6 @@ export const InputFloat = ({ type, title }) => {
 
 InputFloat.propTypes = {
   type: PropTypes.string,
-  title: PropTypes.string
+  title: PropTypes.string,
+  color: PropTypes.string
 }
