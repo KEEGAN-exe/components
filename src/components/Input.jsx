@@ -13,7 +13,7 @@ export const Input = ({ placeholder, type, title, color }) => {
 
   useEffect(() => {
     let cl = ''
-    switch (color.toLowerCase()) {
+    switch (color) {
       case 'teal':
         cl = 'focus:ring-teal-500/70 focus:border-teal-500'
         break
@@ -39,6 +39,7 @@ export const Input = ({ placeholder, type, title, color }) => {
         cl = 'focus:ring-indigo-500/80 focus:border-indigo-500 text-white'
         break
       default:
+        cl = 'focus:ring-inherit/70 focus:border-inherit'
         break
     }
     setColorInput(cl)
@@ -53,7 +54,7 @@ export const Input = ({ placeholder, type, title, color }) => {
       >
         {title}
       </label>
-      <div className="relative my-2">
+      <div className="relative">
         <input
           type={`${typeState}`}
           className={`p-2 outline-none w-full rounded-[3px] text-white/60 transition-all focus:text-white/80 ring-[2px] ring-transparent border-gray-700/35 ${colorInput} border  bg-neutral-900/95 duration-[400ms]${
